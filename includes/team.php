@@ -31,10 +31,19 @@ while($row_ambulance = mysqli_fetch_array($run_ambulance)){
     } 
     else{
         if(isset($_POST['book'])) {
+            $ip_add = getRealIpUser();
+
             $get_ambulance = "select * from ambulance where con_id = $con_id";
             $run_ambulance = mysqli_query($db, $get_ambulance);
             $row_ambulance = mysqli_fetch_array($run_ambulance);
             $booking_status = $row_ambulance['booking'];
+            $ambulance_id = $row_ambulance['con_id'];
+
+            $customer_session = $_SESSION['customer_email'];
+            $get_customer = "select * from customers where customer_email='$customer_session'";
+            $run_customer = mysqli_query($con,$get_customer);
+            $row_customer = mysqli_fetch_array($run_customer);
+            $customer_id = $row_customer['customer_id'];
 
 
 
@@ -43,13 +52,18 @@ while($row_ambulance = mysqli_fetch_array($run_ambulance)){
                 echo "<script>window.open('team.php?view_account','_self')</script>";
             }
             else{
+
                 $up = 1;
                 // Update the 'booking' column in the 'ambulance' table
                 $update_sub = "UPDATE ambulance SET booking='$up' WHERE con_id='$con_id'";
                 $run_up = mysqli_query($db, $update_sub);
+
+                // update booking information
+                $query = "insert into booking (customer_id, ambulance_id, date) values ('$customer_id','$ambulance_id', NOW())";
+                $run_query = mysqli_query($db,$query);
         
                 // Check if the query was successful
-                if($run_up) {
+                if($run_up ) {
                     echo "<script>alert('Congratulations! Ambulance booking successful...')</script>";
                     echo "<script>window.open('customer_area/my_account.php?view_account','_self')</script>";
                 } else {
