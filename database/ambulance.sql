@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 08:25 PM
+-- Generation Time: May 22, 2023 at 05:44 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -67,7 +67,7 @@ CREATE TABLE `ambulance` (
 --
 
 INSERT INTO `ambulance` (`con_id`, `con_name`, `con_ride`, `con_point`, `con_img`, `date`, `booking`) VALUES
-(23, 'Bouer Doa', 96, 1, 'bd.png', '2023-05-21 17:35:27', 1);
+(23, 'Bouer Doa', 96, 1, 'bd.png', '2023-05-22 15:41:10', 1);
 
 -- --------------------------------------------------------
 
@@ -82,6 +82,26 @@ CREATE TABLE `blogs` (
   `blog_img` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `booking_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `ambulance_id` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `customer_id`, `ambulance_id`, `date`) VALUES
+(4, 7, 23, '2023-05-22');
 
 -- --------------------------------------------------------
 
@@ -257,6 +277,12 @@ ALTER TABLE `blogs`
   ADD PRIMARY KEY (`blog_id`);
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`booking_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -319,6 +345,12 @@ ALTER TABLE `ambulance`
 --
 ALTER TABLE `blogs`
   MODIFY `blog_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `category`
