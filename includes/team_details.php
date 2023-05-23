@@ -16,6 +16,7 @@
             $run_cat = mysqli_query($con,$get_cat);
             $row_cat = mysqli_fetch_array($run_cat);
             $cat_title = $row_cat['cat_title'];
+
     
             echo "
                 <div class='card border-dark text-light bg-dark col-md-12 m-auto'>
@@ -50,6 +51,7 @@
                 $p_age = $row_driver['driver_age'];
                 $p_rating = $row_driver['driver_rating'];
                 $con_id = $row_driver['con_id'];
+                $cat_id = $row_driver['cat_id'];
                 $p_img = $row_driver['driver_img'];
 
 
@@ -85,6 +87,7 @@
                 echo "
                     <div class='col'>
                         <div class='card bg-secondary text-light h-100'>
+
                             <a href='player_profile.php?p_id=$p_id'><img src='admin_area/driver_img/$p_img' class='card-img-top p-3'></a>
                             <div class='card-body'>
                                 <h5 class='card-title text-center fw-bolder'>$p_title</h5>
@@ -94,14 +97,6 @@
                 ";
             }
         }
-
-
-
-
-
-
-
-
     }
 ?>
 

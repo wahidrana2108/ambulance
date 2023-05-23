@@ -27,7 +27,7 @@
                 <label>Enter Points</label>
             </div>
             <div class="mb-3">
-                <label class="form-label text-light">Enter Flag Photo</label>
+                <label class="form-label text-light">Enter Ambulance Photo</label>
                 <input name="c_img" type="file" class="form-control" required>
             </div>
             <input name="submit" value="Insert ambulance" type="submit" class="btn btn-primary form-control">

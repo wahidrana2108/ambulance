@@ -19,7 +19,7 @@ while($row_ambulance = mysqli_fetch_array($run_ambulance)){
                 <td><img src='admin_area/country_img/$con_img' height='50px'></td>
                 <th class='text-light'>$con_title</th>
                 <td class='text-light ps-4'>$cat_title</td>
-                <td class='text-light'>$con_point</td>
+                <td class='text-light'>$con_ride</td>
                 <td class='text-light'><a class='btn btn-success' href='team_details.php?con_id=$con_id'>View Details</a></td>
                 <td class='text-light'><button class='btn btn-success' name='book'>Book Now</button></td>
             </tr>
