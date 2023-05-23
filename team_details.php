@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb pt-3">
                     <li class="breadcrumb-item text-light" aria-current="page"><h6><i class="fa-solid fa-home ps-2 pt-2"></i> <a class="text-decoration-none text-light" href="index.php">Home</a></h6></li>
-                    <li class="breadcrumb-item text-light active" aria-current="page"><i class="fa-solid fa-users pt-2"></i> Drivers</li>
+                    <li class="breadcrumb-item text-light active" aria-current="page"><i class="fa-solid fa-books pt-2"></i> Booking Details</li>
                 </ol>
             </nav>
         </div>

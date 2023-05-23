@@ -4,6 +4,45 @@
             $ambulance_id = $_GET['con_id'];
             $get_driver = "select * from driver where con_id='$ambulance_id'";
             $run_driver = mysqli_query($con,$get_driver);
+
+            $get_details = "select * from ambulance where con_id = $ambulance_id";
+            $run_details = mysqli_query($con, $get_details);
+            $row_details = mysqli_fetch_array($run_details);
+            $ambulance_id = $row_details['con_id'];
+            $ambulance_name = $row_details['con_name'];
+            $date = $row_details['date'];
+
+            $get_cat = "select * from category";
+            $run_cat = mysqli_query($con,$get_cat);
+            $row_cat = mysqli_fetch_array($run_cat);
+            $cat_title = $row_cat['cat_title'];
+    
+            echo "
+                <div class='card border-dark text-light bg-dark col-md-12 m-auto'>
+                    <h5 class='card-header text-center text-light' style='background-color: rgb(48, 48, 48);'><i class='fa-solid fa-book pe-3'></i></i>Booking Details</h5>
+                    <div class='card-body text-start bg-dark'>               
+                        <div class='row'>
+                            <div class='col-6'><h6>Ambulance ID:</h6></div>
+                            <div class='col-6'><h6>$ambulance_id</h6></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-6'><h6>Ambulance Name:</h6></div>
+                            <div class='col-6'><h6>$ambulance_name</h6></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-6'><h6>Category:</h6></div>
+                            <div class='col-6'><h6>$cat_title</h6></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-6'><h6>Booking Time:</h6></div>
+                            <div class='col-6'><h6>$date</h6></div>
+                        </div>
+                    </div>
+                </div><br>";
+
+
+
+
             while($row_driver = mysqli_fetch_array($run_driver)){
                 $p_id = $row_driver['driver_id'];
                 $p_title = $row_driver['driver_name'];
@@ -55,6 +94,9 @@
                 ";
             }
         }
+
+
+
 
 
 

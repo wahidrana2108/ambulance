@@ -86,7 +86,7 @@ $customer_session = $_SESSION['customer_email'];
             <h5 class='card-header text-center text-light' style='background-color: rgb(48, 48, 48);'><i class='fa-solid fa-book pe-3'></i></i>Booking Details</h5>
             <div class='card-body text-start bg-dark'>               
                 <div class='row'>
-                    <div class='col-6'><h6>ambulance ID:</h6></div>
+                    <div class='col-6'><h6>Ambulance ID:</h6></div>
                     <div class='col-6'><h6>$booked_ambulance</h6></div>
                 </div>
                 <div class='row'>
